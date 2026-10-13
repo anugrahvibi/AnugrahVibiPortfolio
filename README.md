@@ -1,6 +1,6 @@
 # Anugrah Vibi — Portfolio
 
-A minimal, text-first developer portfolio inspired by the structure of [Aryan Baburajan's portfolio](https://www.aryanbaburajan.com/).
+A minimal, text-first developer portfolio 
 
 ## Run locally
 
