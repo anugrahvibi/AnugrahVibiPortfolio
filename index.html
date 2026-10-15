@@ -1,115 +1,338 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Anugrah Vibi — AI engineering student building safer AI systems, useful tools, and ambitious projects."
-    />
-    <meta name="theme-color" content="#ffffff" />
-    <title>Anugrah Vibi</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <main class="page">
-      <header class="intro">
-        <h1>Anugrah Vibi</h1>
-        <p>
-          I'm an AI engineering student and builder from Kerala, India, studying
-          Computer Science at Christ College of Engineering (2025–2029). I care
-          about making AI safer and turning complex ideas into useful systems.
-        </p>
-        <nav class="social-links" aria-label="Social links">
-          <a href="https://github.com/anugrahvibi">Github</a>
-          <a href="https://www.linkedin.com/in/anugrahvibi/">Linkedin</a>
-          <a href="https://github.com/anugrahvibi?tab=repositories">Projects</a>
-        </nav>
-      </header>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anugrah Vibi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-      <section>
-        <h2>What I'm working on</h2>
-        <ul>
-          <li>
-            <a href="https://github.com/anugrahvibi/sentinel-ai">Sentinel AI</a>:
-            A black-box framework for finding hidden backdoors in language
-            models through behavioral probing and entropy analysis.
-          </li>
-          <li>
-            <a href="https://github.com/anugrahvibi/CascadeNet">CascadeNet</a>:
-            Disaster coordination intelligence that turns flood-risk signals
-            into clear, department-specific response plans.
-          </li>
-          <li>Learning deeply, building carefully, and documenting what I discover along the way.</li>
-        </ul>
-      </section>
+  body {
+    background-color: #e8e8e8;
+    color: #1a1a1a;
+    font-family: 'Space Mono', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    min-height: 100vh;
+  }
 
-      <section>
-        <h2>Highlights</h2>
-        <ul>
-          <li>
-            <a href="https://github.com/anugrahvibi/sentinel-ai">Sentinel AI</a>:
-            Built a two-stage backdoor detection pipeline, tested against a
-            poisoned DistilBERT model, with trigger verification using label
-            shifts, confidence, and entropy.
-          </li>
-          <li>
-            <a href="https://github.com/anugrahvibi/CascadeNet">CascadeNet</a>:
-            Built a flood-response platform with Team KORE; placed 1st at
-            Hackathena 2026 and 2nd Runner-Up at Astrava 2026.
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/anugrahvibi/">Hackathon builder</a>:
-            Earned multiple podium finishes across national and college
-            hackathons, working across research, system design, product framing,
-            and pitching.
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/anugrahvibi/">IEDC, Christ College of Engineering</a>:
-            Co-Chief Publicity Officer, helping make events and first pitches
-            more welcoming for students.
-          </li>
-        </ul>
-      </section>
+  a {
+    color: #1a1a1a;
+    text-decoration: none;
+  }
 
-      <section>
-        <h2>Side Quests</h2>
-        <ul>
-          <li>
-            <a href="https://github.com/anugrahvibi/adversarial-gradient-visualizer">pixel-poison</a>:
-            An adversarial ML sandbox exploring FGSM and PGD attacks with
-            PyTorch and Foolbox.
-          </li>
-          <li>
-            <a href="https://github.com/anugrahvibi">AgniGeo</a>:
-            An urban heat planning concept that combines satellite data,
-            physics-informed modeling, and budget-aware interventions.
-          </li>
-          <li>
-            <a href="https://github.com/anugrahvibi">Kadhali</a>:
-            A project exploring how AI tools can make educational resources
-            more accessible.
-          </li>
-          <li>Experiments, prototypes, and ideas that are still taking shape.</li>
-        </ul>
-      </section>
+  /* NAVIGATION */
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 40px 20px;
+    border-bottom: 1px solid #c8c8c8;
+  }
 
-      <section class="contact">
-        <h2>Contact</h2>
-        <ul>
-          <li>
-            Reach out on
-            <a href="https://www.linkedin.com/in/anugrahvibi/">Linkedin</a>
-            or explore my work on <a href="https://github.com/anugrahvibi">Github</a>.
-          </li>
-        </ul>
-      </section>
-    </main>
-  </body>
+  .nav-left {
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+  }
+
+  .nav-center {
+    display: flex;
+    gap: 120px;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .nav-center a:hover {
+    opacity: 0.6;
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    font-size: 13px;
+  }
+
+  .contact {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    align-items: flex-start;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+  }
+
+  .contact-item .icon {
+    font-size: 12px;
+  }
+
+  .plus {
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1;
+  }
+
+  /* MAIN GRID */
+  .main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 60px;
+    padding: 60px 40px 80px;
+  }
+
+  /* LEFT COLUMN */
+  .col-left {
+    padding-top: 10px;
+  }
+
+  .name {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 56px;
+    line-height: 1.1;
+    margin-bottom: 24px;
+  }
+
+  .tagline {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 1.35;
+    max-width: 520px;
+  }
+
+  /* SECTION STYLES */
+  .section-label {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 20px;
+  }
+
+  .list {
+    list-style: none;
+    margin-bottom: 40px;
+  }
+
+  .list li {
+    margin-bottom: 16px;
+    padding-left: 36px;
+    position: relative;
+    line-height: 1.55;
+  }
+
+  .list li .num {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-style: italic;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+  }
+
+  .list.dotted li {
+    padding-left: 22px;
+  }
+
+  .list.dotted li::before {
+    content: "◦";
+    position: absolute;
+    left: 0;
+    top: -2px;
+    font-size: 14px;
+  }
+
+  .list.dotted li .link {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: #888;
+  }
+
+  .external-icon {
+    font-size: 11px;
+    margin-left: 4px;
+  }
+
+  .sub-text {
+    margin-top: 8px;
+    padding-left: 0;
+    color: #1a1a1a;
+  }
+
+  .sub-text p {
+    margin: 0;
+  }
+
+  /* DIVIDER */
+  .divider {
+    border: none;
+    border-top: 1px solid #c8c8c8;
+    margin: 30px 0;
+  }
+
+  /* RESUME */
+  .resume-link {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 22px;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: #888;
+    display: inline-block;
+    margin-top: 4px;
+  }
+
+  .resume-link:hover {
+    opacity: 0.6;
+  }
+
+  .download-icon {
+    font-family: 'Space Mono', monospace;
+    font-style: normal;
+    font-size: 20px;
+    margin-left: 8px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 1100px) {
+    .main {
+      grid-template-columns: 1fr 1fr;
+    }
+    .col-left {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .nav {
+      flex-wrap: wrap;
+      gap: 16px;
+      padding: 20px;
+    }
+    .nav-center {
+      gap: 40px;
+    }
+    .main {
+      grid-template-columns: 1fr;
+      padding: 40px 20px;
+      gap: 50px;
+    }
+    .name {
+      font-size: 42px;
+    }
+    .tagline {
+      font-size: 22px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-left">AV — 25</div>
+  <div class="nav-center">
+    <a href="#">About</a>
+    <a href="#">Index ::</a>
+  </div>
+  <div class="nav-right">
+    <div class="contact">
+      <div class="contact-item"><span class="icon">⌥</span> Github</div>
+      <div class="contact-item"><span class="icon">✦</span> Linkedin</div>
+    </div>
+    <div class="plus">+</div>
+  </div>
+</nav>
+
+<main class="main">
+
+  <div class="col-left">
+    <h1 class="name">Anugrah Vibi</h1>
+    <p class="tagline">An AI engineering student &amp; builder from Kerala, India — studying Computer Science at Christ College of Engineering (2025–2029). Making AI safer &amp; turning complex ideas into useful systems.</p>
+  </div>
+
+  <div class="col-middle">
+    <p class="section-label">Education</p>
+    <ul class="list">
+      <li><span class="num">I.</span> 2025 – 2029 — B.Tech in Computer Science at Christ College of Engineering, Kerala</li>
+    </ul>
+
+    <p class="section-label">Quick Links</p>
+    <ul class="list dotted">
+      <li>Github<span class="external-icon">↗</span></li>
+      <li>Linkedin<span class="external-icon">↗</span></li>
+    </ul>
+
+    <hr class="divider">
+
+    <p class="section-label">What I'm Working On</p>
+    <ul class="list dotted">
+      <li>
+        <strong>Sentinel AI</strong>
+        <div class="sub-text">
+          <p>A black-box framework for finding hidden backdoors in language models through behavioral probing and entropy analysis.</p>
+        </div>
+      </li>
+      <li>
+        <strong>CascadeNet</strong>
+        <div class="sub-text">
+          <p>Disaster coordination intelligence that turns flood-risk signals into clear, department-specific response plans.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="col-right">
+    <p class="section-label">Highlights</p>
+    <ul class="list">
+      <li><span class="num">I.</span> <strong>Sentinel AI</strong> — Built a two-stage backdoor detection pipeline, tested against a poisoned DistilBERT model, with trigger verification using label shifts, confidence, and entropy.</li>
+      <li><span class="num">II.</span> <strong>CascadeNet</strong> — Built a flood-response platform with Team KORE; placed 1st at Hackathena 2026 and 2nd Runner-Up at Astrava 2026.</li>
+      <li><span class="num">III.</span> <strong>Hackathon Builder</strong> — Earned multiple podium finishes across national and college hackathons, working across research, system design, product framing, and pitching.</li>
+      <li><span class="num">IV.</span> <strong>IEDC, Christ College of Engineering</strong> — Co-Chief Publicity Officer, helping make events and first pitches more welcoming for students.</li>
+    </ul>
+
+    <p class="section-label">Side Quests</p>
+    <ul class="list dotted">
+      <li>
+        <strong>pixel-poison</strong>
+        <div class="sub-text">
+          <p>An adversarial ML sandbox exploring FGSM and PGD attacks with PyTorch and Foolbox.</p>
+        </div>
+      </li>
+      <li>
+        <strong>AgniGeo</strong>
+        <div class="sub-text">
+          <p>An urban heat planning concept that combines satellite data, physics-informed modeling, and budget-aware interventions.</p>
+        </div>
+      </li>
+      <li>
+        <strong>Kadhali</strong>
+        <div class="sub-text">
+          <p>A project exploring how AI tools can make educational resources more accessible.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+</main>
+
+</body>
 </html>
