@@ -1,338 +1,629 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Anugrah Vibi</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Anugrah Vibi — AI engineering student and builder focused on safer AI, research, and useful systems."
+    />
+    <meta name="theme-color" content="#e8e8e8" />
+    <title>Anugrah Vibi — AI Engineering &amp; Research</title>
+    <link rel="icon" href="data:," />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --paper: #e8e8e8;
+        --ink: #1a1a1a;
+        --muted: #5d5d5d;
+        --rule: #c8c8c8;
+        --serif: "Playfair Display", Georgia, serif;
+        --mono: "Space Mono", "Courier New", monospace;
+      }
 
-  body {
-    background-color: #e8e8e8;
-    color: #1a1a1a;
-    font-family: 'Space Mono', monospace;
-    font-size: 14px;
-    line-height: 1.5;
-    min-height: 100vh;
-  }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
 
-  a {
-    color: #1a1a1a;
-    text-decoration: none;
-  }
+      html {
+        scroll-behavior: smooth;
+      }
 
-  /* NAVIGATION */
-  .nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 28px 40px 20px;
-    border-bottom: 1px solid #c8c8c8;
-  }
+      body {
+        min-width: 320px;
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: var(--mono);
+        font-size: 13px;
+        line-height: 1.65;
+      }
 
-  .nav-left {
-    font-family: 'Space Mono', monospace;
-    font-weight: 700;
-    font-size: 15px;
-    letter-spacing: 0.5px;
-  }
+      a {
+        color: inherit;
+        text-decoration-color: #8d8d8d;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3px;
+      }
 
-  .nav-center {
-    display: flex;
-    gap: 120px;
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  }
+      a:hover {
+        text-decoration-color: currentColor;
+      }
 
-  .nav-center a:hover {
-    opacity: 0.6;
-  }
+      a:focus-visible {
+        outline: 2px solid var(--ink);
+        outline-offset: 4px;
+      }
 
-  .nav-right {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    font-size: 13px;
-  }
+      .project-scroll:focus-visible {
+        outline: 1px dashed #858585;
+        outline-offset: 2px;
+      }
 
-  .contact {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    align-items: flex-start;
-  }
+      .nav {
+        min-height: 76px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 18px clamp(22px, 4vw, 56px);
+        border-bottom: 1px solid var(--rule);
+      }
 
-  .contact-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    white-space: nowrap;
-  }
+      .nav-left {
+        flex: 1 1 0;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-decoration: none;
+        white-space: nowrap;
+      }
 
-  .contact-item .icon {
-    font-size: 12px;
-  }
+      .nav-center,
+      .nav-right {
+        display: flex;
+        align-items: center;
+      }
 
-  .plus {
-    font-size: 28px;
-    font-weight: 400;
-    line-height: 1;
-  }
+      .nav-center {
+        justify-content: center;
+        gap: clamp(28px, 6vw, 100px);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
 
-  /* MAIN GRID */
-  .main {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 60px;
-    padding: 60px 40px 80px;
-  }
+      .nav-center a,
+      .plus {
+        text-decoration: none;
+      }
 
-  /* LEFT COLUMN */
-  .col-left {
-    padding-top: 10px;
-  }
+      .nav-right {
+        flex: 1 1 0;
+        justify-content: flex-end;
+        gap: clamp(18px, 4vw, 48px);
+      }
 
-  .name {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-weight: 400;
-    font-size: 56px;
-    line-height: 1.1;
-    margin-bottom: 24px;
-  }
+      .contact {
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+        font-size: 10px;
+        line-height: 1.5;
+      }
 
-  .tagline {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-weight: 400;
-    font-size: 26px;
-    line-height: 1.35;
-    max-width: 520px;
-  }
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        white-space: nowrap;
+      }
 
-  /* SECTION STYLES */
-  .section-label {
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 13px;
-    color: #555;
-    margin-bottom: 20px;
-  }
+      .contact-item span {
+        color: var(--muted);
+      }
 
-  .list {
-    list-style: none;
-    margin-bottom: 40px;
-  }
+      .plus {
+        font-family: var(--serif);
+        font-size: 30px;
+        font-weight: 400;
+        line-height: 1;
+      }
 
-  .list li {
-    margin-bottom: 16px;
-    padding-left: 36px;
-    position: relative;
-    line-height: 1.55;
-  }
+      .main {
+        display: grid;
+        grid-template-columns: minmax(220px, 0.9fr) minmax(360px, 1.35fr) minmax(230px, 0.95fr);
+        gap: clamp(24px, 4vw, 62px);
+        padding: clamp(34px, 5vw, 62px) clamp(22px, 4vw, 56px) 56px;
+      }
 
-  .list li .num {
-    position: absolute;
-    left: 0;
-    top: 0;
-    font-style: italic;
-    font-family: 'Playfair Display', serif;
-    font-size: 16px;
-  }
+      .col-left,
+      .col-right,
+      .col-projects {
+        min-width: 0;
+      }
 
-  .list.dotted li {
-    padding-left: 22px;
-  }
+      .col-left {
+        padding-top: 8px;
+      }
 
-  .list.dotted li::before {
-    content: "◦";
-    position: absolute;
-    left: 0;
-    top: -2px;
-    font-size: 14px;
-  }
+      .name {
+        margin: 0 0 22px;
+        font-family: var(--serif);
+        font-size: clamp(38px, 4vw, 58px);
+        font-style: italic;
+        font-weight: 400;
+        line-height: 1.08;
+        letter-spacing: -0.04em;
+      }
 
-  .list.dotted li .link {
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    text-decoration-color: #888;
-  }
+      .tagline {
+        max-width: 460px;
+        margin: 0;
+        font-family: var(--serif);
+        font-size: clamp(19px, 2vw, 26px);
+        font-style: italic;
+        line-height: 1.42;
+      }
 
-  .external-icon {
-    font-size: 11px;
-    margin-left: 4px;
-  }
+      .socials {
+        margin-top: 42px;
+      }
 
-  .sub-text {
-    margin-top: 8px;
-    padding-left: 0;
-    color: #1a1a1a;
-  }
+      .section-label {
+        margin: 0 0 17px;
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 400;
+        letter-spacing: 0.16em;
+        line-height: 1.4;
+        text-transform: uppercase;
+      }
 
-  .sub-text p {
-    margin: 0;
-  }
+      .social-list,
+      .work-list,
+      .experience-list,
+      .recognition-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
 
-  /* DIVIDER */
-  .divider {
-    border: none;
-    border-top: 1px solid #c8c8c8;
-    margin: 30px 0;
-  }
+      .social-list li {
+        margin: 0 0 8px;
+      }
 
-  /* RESUME */
-  .resume-link {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 22px;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    text-decoration-color: #888;
-    display: inline-block;
-    margin-top: 4px;
-  }
+      .social-list a {
+        text-underline-offset: 4px;
+      }
 
-  .resume-link:hover {
-    opacity: 0.6;
-  }
+      .social-arrow {
+        margin-left: 4px;
+        font-size: 10px;
+      }
 
-  .download-icon {
-    font-family: 'Space Mono', monospace;
-    font-style: normal;
-    font-size: 20px;
-    margin-left: 8px;
-  }
+      .column-heading {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 16px;
+      }
 
-  /* RESPONSIVE */
-  @media (max-width: 1100px) {
-    .main {
-      grid-template-columns: 1fr 1fr;
-    }
-    .col-left {
-      grid-column: 1 / -1;
-    }
-  }
+      .scroll-note {
+        color: var(--muted);
+        font-size: 10px;
+        letter-spacing: 0.08em;
+        white-space: nowrap;
+      }
 
-  @media (max-width: 720px) {
-    .nav {
-      flex-wrap: wrap;
-      gap: 16px;
-      padding: 20px;
-    }
-    .nav-center {
-      gap: 40px;
-    }
-    .main {
-      grid-template-columns: 1fr;
-      padding: 40px 20px;
-      gap: 50px;
-    }
-    .name {
-      font-size: 42px;
-    }
-    .tagline {
-      font-size: 22px;
-    }
-  }
-</style>
-</head>
-<body>
+      .work-list li {
+        position: relative;
+        margin: 0 0 16px;
+        padding-left: 34px;
+        line-height: 1.55;
+      }
 
-<nav class="nav">
-  <div class="nav-left">AV — 25</div>
-  <div class="nav-center">
-    <a href="#">About</a>
-    <a href="#">Index ::</a>
-  </div>
-  <div class="nav-right">
-    <div class="contact">
-      <div class="contact-item"><span class="icon">⌥</span> Github</div>
-      <div class="contact-item"><span class="icon">✦</span> Linkedin</div>
-    </div>
-    <div class="plus">+</div>
-  </div>
-</nav>
+      .work-list .num {
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-family: var(--serif);
+        font-size: 15px;
+        font-style: italic;
+      }
 
-<main class="main">
+      .work-list strong,
+      .project-title {
+        font-weight: 700;
+      }
 
-  <div class="col-left">
-    <h1 class="name">Anugrah Vibi</h1>
-    <p class="tagline">An AI engineering student &amp; builder from Kerala, India — studying Computer Science at Christ College of Engineering (2025–2029). Making AI safer &amp; turning complex ideas into useful systems.</p>
-  </div>
+      .sub-text {
+        margin-top: 5px;
+        color: #383838;
+      }
 
-  <div class="col-middle">
-    <p class="section-label">Education</p>
-    <ul class="list">
-      <li><span class="num">I.</span> 2025 – 2029 — B.Tech in Computer Science at Christ College of Engineering, Kerala</li>
-    </ul>
+      .project-scroll {
+        min-width: 0;
+      }
 
-    <p class="section-label">Quick Links</p>
-    <ul class="list dotted">
-      <li>Github<span class="external-icon">↗</span></li>
-      <li>Linkedin<span class="external-icon">↗</span></li>
-    </ul>
+      .divider {
+        margin: 27px 0 24px;
+        border: 0;
+        border-top: 1px solid var(--rule);
+      }
 
-    <hr class="divider">
+      .projects-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
 
-    <p class="section-label">What I'm Working On</p>
-    <ul class="list dotted">
-      <li>
-        <strong>Sentinel AI</strong>
-        <div class="sub-text">
-          <p>A black-box framework for finding hidden backdoors in language models through behavioral probing and entropy analysis.</p>
+      .project {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 6px 16px;
+        padding: 0 0 17px;
+        margin: 0 0 17px;
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .project:last-child {
+        margin-bottom: 0;
+        border-bottom: 0;
+      }
+
+      .project-title {
+        font-size: 13px;
+      }
+
+      .project-description {
+        grid-column: 1 / 2;
+        margin: 0;
+        color: #383838;
+        line-height: 1.6;
+      }
+
+      .project-link {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        align-self: start;
+        font-size: 11px;
+        white-space: nowrap;
+      }
+
+      .experience-list li,
+      .recognition-list li {
+        margin: 0 0 13px;
+        line-height: 1.55;
+      }
+
+      .role-title,
+      .recognition-title {
+        display: block;
+        font-weight: 700;
+      }
+
+      .role-meta,
+      .recognition-meta {
+        display: block;
+        color: var(--muted);
+        font-size: 11px;
+      }
+
+      .right-section + .right-section {
+        margin-top: 31px;
+      }
+
+      @media (min-width: 1001px) and (min-height: 660px) {
+        body {
+          height: 100vh;
+          height: 100dvh;
+          overflow: hidden;
+        }
+
+        .nav {
+          height: 76px;
+          min-height: 76px;
+        }
+
+        .main {
+          height: calc(100vh - 76px);
+          height: calc(100dvh - 76px);
+          overflow: hidden;
+          padding-top: clamp(32px, 5vh, 60px);
+          padding-bottom: 34px;
+        }
+
+        .col-projects {
+          min-height: 0;
+          overflow-x: hidden;
+          overflow-y: auto;
+          overscroll-behavior-y: contain;
+          scrollbar-color: #a5a5a5 transparent;
+          scrollbar-width: thin;
+          padding: 0 13px 18px 0;
+        }
+
+        .col-projects::-webkit-scrollbar {
+          width: 5px;
+        }
+
+        .col-projects::-webkit-scrollbar-thumb {
+          background: #a5a5a5;
+          border-radius: 10px;
+        }
+
+        .col-projects::-webkit-scrollbar-track {
+          background: transparent;
+        }
+      }
+
+      @media (max-width: 1000px), (max-height: 659px) {
+        .main {
+          grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+          overflow: visible;
+        }
+
+        .scroll-note {
+          display: none;
+        }
+
+        .col-left,
+        .col-projects {
+          grid-column: 1 / -1;
+        }
+
+        .col-left {
+          max-width: 720px;
+        }
+      }
+
+      @media (max-width: 620px) {
+        .nav {
+          display: grid;
+          grid-template-columns: 1fr auto;
+          gap: 12px 16px;
+          padding: 16px 20px;
+        }
+
+        .nav-left {
+          grid-column: 1;
+        }
+
+        .nav-right {
+          grid-column: 2;
+          grid-row: 1;
+          gap: 16px;
+        }
+
+        .contact {
+          flex-direction: row;
+          gap: 12px;
+          font-size: 9px;
+        }
+
+        .contact-item,
+        .social-list a,
+        .project-link,
+        .nav-center a {
+          display: inline-flex;
+          min-height: 44px;
+          align-items: center;
+        }
+
+        .contact-item span {
+          display: none;
+        }
+
+        .plus {
+          display: grid;
+          width: 40px;
+          height: 44px;
+          place-items: center;
+          font-size: 24px;
+        }
+
+        .nav-center {
+          grid-column: 1 / -1;
+          grid-row: 2;
+          justify-content: flex-start;
+          gap: 30px;
+          padding-top: 7px;
+          border-top: 1px solid var(--rule);
+          font-size: 10px;
+        }
+
+        .main {
+          grid-template-columns: minmax(0, 1fr);
+          gap: 42px;
+          padding: 38px 20px 56px;
+        }
+
+        .col-left,
+        .col-projects {
+          grid-column: 1;
+        }
+
+        .name {
+          margin-bottom: 17px;
+          font-size: 43px;
+        }
+
+        .tagline {
+          font-size: 21px;
+        }
+
+        .socials {
+          margin-top: 28px;
+        }
+
+        .col-right {
+          display: grid;
+          grid-template-columns: 1fr;
+        }
+
+        .project {
+          grid-template-columns: minmax(0, 1fr);
+          gap: 4px;
+        }
+
+        .project-description,
+        .project-link {
+          grid-column: 1;
+          grid-row: auto;
+        }
+
+        .project-link {
+          margin-top: 3px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
+    </style>
+  </head>
+  <body id="top">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="nav-left" href="#top" aria-label="Anugrah Vibi, back to top">AV — 26</a>
+      <div class="nav-center">
+        <a href="#about">About</a>
+        <a href="#projects">Index <span aria-hidden="true">::</span></a>
+      </div>
+      <div class="nav-right">
+        <div class="contact" aria-label="Social links">
+          <a class="contact-item" href="https://github.com/anugrahvibi" target="_blank" rel="noreferrer">
+            <span aria-hidden="true">↗</span> GitHub
+          </a>
+          <a class="contact-item" href="https://www.linkedin.com/in/anugrahvibi/" target="_blank" rel="noreferrer">
+            <span aria-hidden="true">↗</span> LinkedIn
+          </a>
         </div>
-      </li>
-      <li>
-        <strong>CascadeNet</strong>
-        <div class="sub-text">
-          <p>Disaster coordination intelligence that turns flood-risk signals into clear, department-specific response plans.</p>
-        </div>
-      </li>
-    </ul>
-  </div>
+        <a class="plus" href="#socials" aria-label="Jump to social links">+</a>
+      </div>
+    </nav>
 
-  <div class="col-right">
-    <p class="section-label">Highlights</p>
-    <ul class="list">
-      <li><span class="num">I.</span> <strong>Sentinel AI</strong> — Built a two-stage backdoor detection pipeline, tested against a poisoned DistilBERT model, with trigger verification using label shifts, confidence, and entropy.</li>
-      <li><span class="num">II.</span> <strong>CascadeNet</strong> — Built a flood-response platform with Team KORE; placed 1st at Hackathena 2026 and 2nd Runner-Up at Astrava 2026.</li>
-      <li><span class="num">III.</span> <strong>Hackathon Builder</strong> — Earned multiple podium finishes across national and college hackathons, working across research, system design, product framing, and pitching.</li>
-      <li><span class="num">IV.</span> <strong>IEDC, Christ College of Engineering</strong> — Co-Chief Publicity Officer, helping make events and first pitches more welcoming for students.</li>
-    </ul>
+    <main class="main">
+      <section class="col-left" id="about" aria-labelledby="name">
+        <h1 class="name" id="name">Anugrah Vibi</h1>
+        <p class="tagline">
+          An AI engineering student &amp; builder from Kerala, India — studying Computer Science at Christ College of Engineering (2025–2029). Making AI safer &amp; turning complex ideas into useful systems.
+        </p>
 
-    <p class="section-label">Side Quests</p>
-    <ul class="list dotted">
-      <li>
-        <strong>pixel-poison</strong>
-        <div class="sub-text">
-          <p>An adversarial ML sandbox exploring FGSM and PGD attacks with PyTorch and Foolbox.</p>
-        </div>
-      </li>
-      <li>
-        <strong>AgniGeo</strong>
-        <div class="sub-text">
-          <p>An urban heat planning concept that combines satellite data, physics-informed modeling, and budget-aware interventions.</p>
-        </div>
-      </li>
-      <li>
-        <strong>Kadhali</strong>
-        <div class="sub-text">
-          <p>A project exploring how AI tools can make educational resources more accessible.</p>
-        </div>
-      </li>
-    </ul>
-  </div>
+        <nav class="socials" id="socials" aria-label="Find me online">
+          <p class="section-label">Elsewhere</p>
+          <ul class="social-list">
+            <li><a href="https://github.com/anugrahvibi" target="_blank" rel="noreferrer">GitHub<span class="social-arrow" aria-hidden="true">↗</span></a></li>
+            <li><a href="https://www.linkedin.com/in/anugrahvibi/" target="_blank" rel="noreferrer">LinkedIn<span class="social-arrow" aria-hidden="true">↗</span></a></li>
+            <li><a href="https://x.com/anugrahvibi" target="_blank" rel="noreferrer">X<span class="social-arrow" aria-hidden="true">↗</span></a></li>
+          </ul>
+        </nav>
+      </section>
 
-</main>
+      <section class="col-projects project-scroll" id="projects" tabindex="0" aria-label="Selected work and projects">
+        <div class="column-heading">
+          <h2 class="section-label">Selected work</h2>
+          <span class="scroll-note" aria-hidden="true">SCROLL ↓</span>
+        </div>
+        <ol class="work-list">
+          <li>
+            <span class="num" aria-hidden="true">I.</span>
+            <strong>Sentinel AI</strong> — A black-box framework for finding hidden backdoors in NLP models through behavioral probing and entropy analysis.
+          </li>
+          <li>
+            <span class="num" aria-hidden="true">II.</span>
+            <strong>CascadeNet</strong> — A disaster coordination platform; 1st at Hackathena 2026 and 2nd Runner-Up at Astrava 2026.
+          </li>
+          <li>
+            <span class="num" aria-hidden="true">III.</span>
+            <strong>AGRUS</strong> — An AI agritech concept integrating soil monitoring, plant diagnostics, and verified agricultural knowledge; 1st Place at EVOLVE 2.0.
+          </li>
+        </ol>
 
-</body>
+        <hr class="divider" />
+
+        <h2 class="section-label">Projects</h2>
+        <ul class="projects-list">
+          <li class="project">
+            <span class="project-title">Sentinel AI</span>
+            <p class="project-description">Detects unknown backdoor triggers through controlled input perturbations and entropy analysis. Tested on a poisoned DistilBERT model.</p>
+            <a class="project-link" href="https://github.com/anugrahvibi/sentinel-ai" target="_blank" rel="noreferrer">GitHub ↗</a>
+          </li>
+          <li class="project">
+            <span class="project-title">CascadeNet</span>
+            <p class="project-description">Turns flood-risk signals into simultaneous response plans for five stakeholders, from dam authorities to the public.</p>
+            <a class="project-link" href="https://github.com/anugrahvibi/CascadeNet" target="_blank" rel="noreferrer">GitHub ↗</a>
+          </li>
+          <li class="project">
+            <span class="project-title">Kadhali Healthcare</span>
+            <p class="project-description">A medical PDF analyzer that extracts clinical information and creates patient-friendly summaries and reports.</p>
+            <a class="project-link" href="https://github.com/anugrahvibi/Kadhali-Healthcare" target="_blank" rel="noreferrer">GitHub ↗</a>
+          </li>
+          <li class="project">
+            <span class="project-title">Pixel Poison</span>
+            <p class="project-description">A PyTorch case study visualizing FGSM and PGD adversarial attacks against an MNIST classifier.</p>
+            <a class="project-link" href="https://github.com/anugrahvibi/adversarial-gradient-visualizer" target="_blank" rel="noreferrer">GitHub ↗</a>
+          </li>
+          <li class="project">
+            <span class="project-title">Sports Analysis</span>
+            <p class="project-description">A player-performance analysis project exploring which club might target a player.</p>
+            <a class="project-link" href="https://github.com/anugrahvibi/sports-analysis-project" target="_blank" rel="noreferrer">GitHub ↗</a>
+          </li>
+          <li class="project">
+            <span class="project-title">Christovate 2025</span>
+            <p class="project-description">Website for Christovate.</p>
+            <a class="project-link" href="https://github.com/anugrahvibi/christovate25" target="_blank" rel="noreferrer">GitHub ↗</a>
+          </li>
+        </ul>
+      </section>
+
+      <aside class="col-right" aria-label="Experience and recognition">
+        <section class="right-section" aria-labelledby="experience-heading">
+          <h2 class="section-label" id="experience-heading">Experience</h2>
+          <ul class="experience-list">
+            <li>
+              <span class="role-title">Co-Chief Publicity Officer</span>
+              <span class="role-meta">IEDC · Christ College of Engineering · Jun 2026</span>
+            </li>
+            <li>
+              <span class="role-title">Co-Chief Operations Officer</span>
+              <span class="role-meta">MuLearn CCE · Jun 2026</span>
+            </li>
+            <li>
+              <span class="role-title">District Cluster Volunteer · Health</span>
+              <span class="role-meta">IEDC · Feb 2026</span>
+            </li>
+            <li>
+              <span class="role-title">Technical Team Volunteer</span>
+              <span class="role-meta">IEDC Techletics · Feb 2026</span>
+            </li>
+          </ul>
+        </section>
+
+        <section class="right-section" aria-labelledby="recognition-heading">
+          <h2 class="section-label" id="recognition-heading">Recognitions</h2>
+          <ul class="recognition-list">
+            <li><span class="recognition-title">1st Place · Hackathena</span><span class="recognition-meta">National Hackathon · 2026</span></li>
+            <li><span class="recognition-title">2nd Runner-Up · Astrava</span><span class="recognition-meta">National Hackathon · 2026</span></li>
+            <li><span class="recognition-title">2nd Place · BeachHack H4C</span><span class="recognition-meta">Feb 2026</span></li>
+            <li><span class="recognition-title">1st Place · EVOLVE 2.0</span><span class="recognition-meta">AGRUS · Oct 2025</span></li>
+            <li><span class="recognition-title">1st Place · Webathon</span><span class="recognition-meta">Oct 2025</span></li>
+            <li><span class="recognition-title">2nd Prize · Hacknova</span><span class="recognition-meta">Kadhali Healthcare · Sep 2025</span></li>
+          </ul>
+        </section>
+      </aside>
+    </main>
+  </body>
 </html>
