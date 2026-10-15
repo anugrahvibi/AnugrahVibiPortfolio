@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Anugrah Vibi — AI engineering student and builder focused on safer AI, research, and useful systems."
+      content="Most people focus on making AI smarter. I focus on making it safer. I attack models to learn how they break, then build what stops it."
     />
     <meta name="theme-color" content="#e8e8e8" />
-    <title>Anugrah Vibi — AI Engineering &amp; Research</title>
+    <title>Anugrah Vibi — AI Security &amp; Model Internals</title>
     <link rel="icon" href="data:," />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -134,43 +134,76 @@
         letter-spacing: -0.02em;
       }
 
-      .tagline {
-        max-width: 42ch;
-        margin: 24px 0 0;
-        color: #3a3a3a;
+      .role-line {
+        margin: 14px 0 0;
+        color: #111;
         font-family: var(--mono);
-        font-size: 15px;
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .intro-description {
+        max-width: 36ch;
+        margin: 20px 0 0;
+        color: #1a1a1a;
+        font-family: var(--serif);
+        font-size: 22px;
         font-style: normal;
-        line-height: 1.65;
+        letter-spacing: 0;
+        line-height: 1.3;
+        text-wrap: pretty;
+      }
+
+      .meta-lines {
+        margin-top: 28px;
+        color: #606060;
+        font-family: var(--mono);
+        font-size: 12px;
+        line-height: 1.6;
+      }
+
+      .meta-lines p {
+        margin: 0;
+        white-space: nowrap;
       }
 
       .cv-link {
         display: inline-flex;
         align-items: center;
-        gap: 8px;
-        margin-top: 28px;
-        padding: 12px 18px;
-        border: 1px solid #111;
-        border-radius: 0;
-        background: #111;
-        color: #f8f8f6;
-        font-family: var(--mono);
-        font-size: 13px;
-        letter-spacing: 0.02em;
-        line-height: 1.4;
-        text-decoration: none;
-        transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
+        color: #111;
+        font-family: var(--serif);
+        font-size: 28px;
+        line-height: 1.2;
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 6px;
       }
 
       .cv-link:hover,
       .cv-link:focus-visible {
-        border-color: #111;
-        background: transparent;
-        color: #111;
+        text-decoration-thickness: 2px;
+      }
+
+      .download-arrow {
+        width: 0.7em;
+        height: 0.7em;
+        margin-left: 10px;
+        transition: transform 150ms ease;
+      }
+
+      .cv-link:hover .download-arrow,
+      .cv-link:focus-visible .download-arrow {
+        transform: translateY(3px);
+      }
+
+      .left-bottom {
+        margin-top: 40px;
       }
 
       .socials {
-        margin-top: 28px;
+        margin-top: 20px;
       }
 
       .section-label {
@@ -197,21 +230,29 @@
       }
 
       .social-list a {
+        color: #606060;
+        font-family: var(--mono);
+        font-size: 13px;
+        font-weight: 400;
+        text-decoration: none;
+      }
+
+      .social-list a:hover,
+      .social-list a:focus-visible {
+        color: #111;
+        text-decoration: underline;
         text-underline-offset: 4px;
-        font-size: 14px;
-        font-weight: 600;
-        white-space: nowrap;
       }
 
       .social-list {
         display: flex;
         flex-wrap: wrap;
-        gap: 22px;
+        align-items: center;
       }
 
-      .social-arrow {
-        margin-left: 4px;
-        font-size: 10px;
+      .social-list .social-separator {
+        margin: 0 10px;
+        color: #aaa;
       }
 
       .column-heading {
@@ -343,7 +384,7 @@
           height: calc(100dvh - 76px);
           overflow: hidden;
           padding-top: clamp(32px, 5vh, 60px);
-          padding-bottom: 34px;
+          padding-bottom: 48px;
         }
 
         .col-projects {
@@ -419,10 +460,6 @@
           grid-column: 1;
         }
 
-        .socials {
-          margin-top: 28px;
-        }
-
         .col-right {
           display: grid;
           grid-template-columns: 1fr;
@@ -470,27 +507,36 @@
 
     <main class="main">
       <section class="col-left" aria-labelledby="name">
-        <h1 class="name" id="name">Anugrah Vibi</h1>
-        <p class="tagline">
-          An AI engineering student &amp; builder from Kerala, India — studying Computer Science at Christ College of Engineering (2025–2029). Making AI safer &amp; turning complex ideas into useful systems.
-        </p>
+        <div class="left-top">
+          <h1 class="name" id="name">Anugrah Vibi</h1>
+          <p class="role-line">AI security &amp; model internals</p>
+          <p class="intro-description">Most people focus on making AI smarter. I focus on making it safer. I attack models to learn how they break, then build what stops it.</p>
+          <div class="meta-lines">
+            <p>Kerala, India</p>
+            <p>Computer Science, Christ College of Engineering</p>
+            <p>2025–2029</p>
+          </div>
+        </div>
 
-        <a class="cv-link" href="./assets/Anugrah_Vibi_CV.pdf" download="Anugrah_Vibi_CV.pdf">
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-            <path d="M8 1.5v8" />
-            <path d="m4.75 6.75 3.25 3.25 3.25-3.25" />
-            <path d="M2.5 11.5v2h11v-2" />
-          </svg>
-          <span>Download CV</span>
-        </a>
+        <div class="left-bottom">
+          <a class="cv-link" href="./assets/Anugrah_Vibi_CV.pdf" download="Anugrah_Vibi_CV.pdf">
+            <span>Download CV</span>
+            <svg class="download-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="M8 1.5v11" />
+              <path d="m4.5 9 3.5 3.5L11.5 9" />
+            </svg>
+          </a>
 
-        <nav class="socials" aria-label="Find me online">
-          <ul class="social-list">
-            <li><a href="https://github.com/anugrahvibi" target="_blank" rel="noreferrer">GitHub<span class="social-arrow" aria-hidden="true">↗</span></a></li>
-            <li><a href="https://www.linkedin.com/in/anugrahvibi/" target="_blank" rel="noreferrer">LinkedIn<span class="social-arrow" aria-hidden="true">↗</span></a></li>
-            <li><a href="https://x.com/anugrahvibi" target="_blank" rel="noreferrer">X<span class="social-arrow" aria-hidden="true">↗</span></a></li>
-          </ul>
-        </nav>
+          <nav class="socials" aria-label="Find me online">
+            <ul class="social-list">
+              <li><a href="https://github.com/anugrahvibi" target="_blank" rel="noreferrer">GitHub</a></li>
+              <li class="social-separator" aria-hidden="true">/</li>
+              <li><a href="https://www.linkedin.com/in/anugrahvibi/" target="_blank" rel="noreferrer">LinkedIn</a></li>
+              <li class="social-separator" aria-hidden="true">/</li>
+              <li><a href="https://x.com/anugrahvibi" target="_blank" rel="noreferrer">X</a></li>
+            </ul>
+          </nav>
+        </div>
       </section>
 
       <section class="col-projects project-scroll" tabindex="0" aria-label="Selected work and projects">
