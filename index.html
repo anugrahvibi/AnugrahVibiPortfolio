@@ -155,7 +155,7 @@
 
       .col-left {
         padding-top: calc(var(--column-top) + 8px * var(--ui-scale));
-        padding-bottom: var(--column-bottom);
+        padding-bottom: 0;
       }
 
       .col-projects,
@@ -247,6 +247,23 @@
 
       .socials {
         margin-top: calc(20px * var(--ui-scale));
+      }
+
+      .portrait-preview {
+        width: min(100%, calc(360px * var(--ui-scale)));
+        margin: calc(12px * var(--ui-scale)) 0 calc(32px * var(--ui-scale));
+        overflow: hidden;
+        border-top: var(--rule-major);
+        padding-top: calc(12px * var(--ui-scale));
+      }
+
+      .portrait-preview img {
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        object-position: center;
       }
 
       .section-label {
@@ -529,6 +546,10 @@
       }
 
       @media (max-width: 1000px), (max-height: 659px) {
+        .portrait-preview {
+          display: none;
+        }
+
         .main {
           grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
           row-gap: 0;
@@ -622,7 +643,6 @@
     <header class="nav">
       <a class="nav-left" href="./" aria-label="Anugrah Vibi home">
         <span class="nav-avatar" aria-hidden="true">AV</span>
-        <span>Anugrah Vibi</span>
       </a>
       <div class="local-times" role="group" aria-label="Local times">
         <div class="time-row time-row--me">
@@ -669,11 +689,15 @@
               <li><a href="https://x.com/anugrah_vibi" target="_blank" rel="noreferrer">X</a></li>
             </ul>
           </nav>
+
+          <figure class="portrait-preview">
+            <img src="./assets/portrait-original-bw.jpg" alt="Black-and-white portrait of Anugrah Vibi against a textured wall" />
+          </figure>
         </div>
       </section>
 
       <section class="col-projects" aria-labelledby="work-heading" tabindex="0">
-        <h2 class="section-label" id="work-heading">WORK</h2>
+        <h2 class="section-label" id="work-heading">HIGHLIGHTS</h2>
         <ul class="featured-list">
           <li class="featured-entry">
             <div class="featured-heading">
