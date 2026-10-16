@@ -250,7 +250,8 @@
       }
 
       .portrait-preview {
-        width: min(100%, calc(360px * var(--ui-scale)));
+        width: min(100%, calc(360px * var(--ui-scale)), 31vh);
+        width: min(100%, calc(360px * var(--ui-scale)), 31dvh);
         margin: calc(12px * var(--ui-scale)) 0 calc(32px * var(--ui-scale));
         overflow: hidden;
         border-top: var(--rule-major);
@@ -592,6 +593,12 @@
           margin-right: 0;
           margin-left: 0;
           padding: var(--cell-pad) 0;
+        }
+      }
+
+      @media (min-width: 1001px) and (min-height: 660px) and (max-height: 715px) {
+        .portrait-preview {
+          display: none;
         }
       }
 
