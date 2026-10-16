@@ -19,13 +19,14 @@
     <style>
       :root {
         color-scheme: light;
+        --ui-scale: 0.9;
         --paper: #e8e8e8;
         --ink: #1a1a1a;
         --muted: #5d5d5d;
         --rule: #c8c8c8;
         --rule-major: 1px solid var(--rule);
         --column-divider: var(--rule-major);
-        --cell-pad: 28px;
+        --cell-pad: calc(28px * var(--ui-scale));
         --serif: "Instrument Serif", Georgia, serif;
         --mono: "Space Mono", "Courier New", monospace;
       }
@@ -51,7 +52,7 @@
         background: var(--paper);
         color: var(--ink);
         font-family: var(--mono);
-        font-size: 13px;
+        font-size: calc(13px * var(--ui-scale));
         line-height: 1.65;
       }
 
@@ -72,15 +73,15 @@
       }
 
       .nav {
-        min-height: 76px;
+        min-height: calc(76px * var(--ui-scale));
         display: flex;
         align-items: center;
-        padding: 18px clamp(22px, 4vw, 56px);
+        padding: calc(18px * var(--ui-scale)) clamp(calc(22px * var(--ui-scale)), calc(4vw * var(--ui-scale)), calc(56px * var(--ui-scale)));
         border-bottom: var(--rule-major);
       }
 
       .nav-left {
-        font-size: 14px;
+        font-size: calc(14px * var(--ui-scale));
         font-weight: 600;
         letter-spacing: 0.08em;
         white-space: nowrap;
@@ -92,7 +93,7 @@
         align-items: flex-end;
         margin-left: auto;
         color: var(--muted);
-        font-size: 11px;
+        font-size: calc(11px * var(--ui-scale));
         letter-spacing: 0.04em;
         line-height: 1.35;
         white-space: nowrap;
@@ -111,12 +112,12 @@
       }
 
       .main {
-        --column-gap: clamp(24px, 4vw, 62px);
-        --page-inset: clamp(22px, 4vw, 56px);
-        --column-top: clamp(34px, 5vw, 62px);
-        --column-bottom: 64px;
+        --column-gap: clamp(calc(24px * var(--ui-scale)), calc(4vw * var(--ui-scale)), calc(62px * var(--ui-scale)));
+        --page-inset: clamp(calc(22px * var(--ui-scale)), calc(4vw * var(--ui-scale)), calc(56px * var(--ui-scale)));
+        --column-top: clamp(calc(34px * var(--ui-scale)), calc(5vw * var(--ui-scale)), calc(62px * var(--ui-scale)));
+        --column-bottom: calc(64px * var(--ui-scale));
         display: grid;
-        grid-template-columns: minmax(220px, 0.9fr) minmax(360px, 1.35fr) minmax(230px, 0.95fr);
+        grid-template-columns: minmax(calc(220px * var(--ui-scale)), 0.9fr) minmax(calc(360px * var(--ui-scale)), 1.35fr) minmax(calc(230px * var(--ui-scale)), 0.95fr);
         column-gap: var(--column-gap);
         row-gap: var(--column-gap);
         align-items: stretch;
@@ -130,7 +131,7 @@
       }
 
       .col-left {
-        padding-top: calc(var(--column-top) + 8px);
+        padding-top: calc(var(--column-top) + 8px * var(--ui-scale));
         padding-bottom: var(--column-bottom);
       }
 
@@ -146,7 +147,7 @@
       .name {
         margin: 0;
         font-family: var(--serif);
-        font-size: clamp(48px, 5vw, 76px);
+        font-size: calc(clamp(48px, 5vw, 76px) * var(--ui-scale));
         font-style: normal;
         font-weight: 400;
         line-height: 1;
@@ -154,10 +155,10 @@
       }
 
       .role-line {
-        margin: 14px 0 0;
+        margin: calc(14px * var(--ui-scale)) 0 0;
         color: #111;
         font-family: var(--mono);
-        font-size: 12px;
+        font-size: calc(12px * var(--ui-scale));
         font-weight: 500;
         letter-spacing: 0.1em;
         text-transform: uppercase;
@@ -165,10 +166,10 @@
 
       .intro-description {
         max-width: 36ch;
-        margin: 20px 0 0;
+        margin: calc(20px * var(--ui-scale)) 0 0;
         color: #1a1a1a;
         font-family: var(--serif);
-        font-size: 22px;
+        font-size: calc(22px * var(--ui-scale));
         font-style: normal;
         letter-spacing: 0;
         line-height: 1.3;
@@ -176,10 +177,10 @@
       }
 
       .meta-lines {
-        margin-top: 28px;
+        margin-top: calc(28px * var(--ui-scale));
         color: #606060;
         font-family: var(--mono);
-        font-size: 12px;
+        font-size: calc(12px * var(--ui-scale));
         line-height: 1.6;
       }
 
@@ -193,7 +194,7 @@
         align-items: center;
         color: #111;
         font-family: var(--serif);
-        font-size: 28px;
+        font-size: calc(28px * var(--ui-scale));
         line-height: 1.2;
         text-decoration: underline;
         text-decoration-thickness: 1px;
@@ -208,7 +209,7 @@
       .download-arrow {
         width: 0.7em;
         height: 0.7em;
-        margin-left: 10px;
+        margin-left: calc(10px * var(--ui-scale));
         transition: transform 150ms ease;
       }
 
@@ -218,17 +219,17 @@
       }
 
       .left-bottom {
-        margin-top: 40px;
+        margin-top: calc(40px * var(--ui-scale));
       }
 
       .socials {
-        margin-top: 20px;
+        margin-top: calc(20px * var(--ui-scale));
       }
 
       .section-label {
-        margin: 0 0 17px;
+        margin: 0 0 calc(17px * var(--ui-scale));
         color: var(--muted);
-        font-size: 11px;
+        font-size: calc(11px * var(--ui-scale));
         font-weight: 400;
         letter-spacing: 0.16em;
         line-height: 1.4;
@@ -250,7 +251,7 @@
       .social-list a {
         color: #606060;
         font-family: var(--mono);
-        font-size: 13px;
+        font-size: calc(13px * var(--ui-scale));
         font-weight: 400;
         text-decoration: none;
       }
@@ -269,7 +270,7 @@
       }
 
       .social-list .social-separator {
-        margin: 0 10px;
+        margin: 0 calc(10px * var(--ui-scale));
         color: #aaa;
       }
 
@@ -281,7 +282,7 @@
       }
 
       .featured-entry {
-        padding: 28px 0;
+        padding: calc(28px * var(--ui-scale)) 0;
         padding-right: calc(var(--column-gap) / 2);
         padding-left: calc(var(--column-gap) / 2 - 1px);
         border-bottom: var(--rule-major);
@@ -310,7 +311,7 @@
         display: flex;
         align-items: baseline;
         justify-content: space-between;
-        gap: 16px;
+        gap: calc(16px * var(--ui-scale));
       }
 
       .featured-title {
@@ -318,32 +319,43 @@
         margin: 0;
         color: #111;
         font-family: var(--serif);
-        font-size: 28px;
+        font-size: calc(28px * var(--ui-scale));
         font-weight: 400;
         line-height: 1.1;
       }
 
       .featured-link,
       .archive-link {
-        font-size: 11px;
+        font-size: calc(11px * var(--ui-scale));
         white-space: nowrap;
       }
 
       .featured-description {
         max-width: 58ch;
-        margin: 8px 0 0;
+        margin: calc(8px * var(--ui-scale)) 0 0;
         color: #333;
         font-family: var(--mono);
-        font-size: 13px;
+        font-size: calc(13px * var(--ui-scale));
         line-height: 1.6;
       }
 
       .featured-meta {
-        margin: 8px 0 0;
+        margin: calc(8px * var(--ui-scale)) 0 0;
         color: #606060;
         font-family: var(--mono);
-        font-size: 12px;
+        font-size: calc(12px * var(--ui-scale));
         line-height: 1.5;
+      }
+
+      .featured-meta a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .featured-meta a:hover,
+      .featured-meta a:focus-visible {
+        text-decoration: underline;
+        text-underline-offset: 3px;
       }
 
       .archive-section {
@@ -353,7 +365,7 @@
 
       .archive-entry {
         min-width: 0;
-        padding: 14px 0;
+        padding: calc(14px * var(--ui-scale)) 0;
         padding-right: calc(var(--column-gap) / 2);
         padding-left: calc(var(--column-gap) / 2 - 1px);
         border-bottom: var(--rule-major);
@@ -362,17 +374,17 @@
       .archive-name {
         min-width: 0;
         font-family: var(--mono);
-        font-size: 13px;
+        font-size: calc(13px * var(--ui-scale));
         font-weight: 700;
       }
 
       .archive-description {
         display: -webkit-box;
         overflow: hidden;
-        margin: 4px 0 0;
+        margin: calc(4px * var(--ui-scale)) 0 0;
         color: #606060;
         font-family: var(--mono);
-        font-size: 12.5px;
+        font-size: calc(12.5px * var(--ui-scale));
         line-height: 1.55;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;
@@ -380,7 +392,7 @@
 
       .experience-list li,
       .recognition-list li {
-        margin: 0 0 13px;
+        margin: 0 0 calc(13px * var(--ui-scale));
         line-height: 1.55;
       }
 
@@ -392,14 +404,14 @@
       .role-meta {
         display: block;
         color: var(--muted);
-        font-size: 11px;
+        font-size: calc(11px * var(--ui-scale));
       }
 
       .now-heading {
         display: flex;
         align-items: baseline;
         justify-content: space-between;
-        gap: 12px;
+        gap: calc(12px * var(--ui-scale));
       }
 
       .now-heading .section-label {
@@ -413,7 +425,7 @@
       .now-updated {
         color: #606060;
         font-family: var(--mono);
-        font-size: 11px;
+        font-size: calc(11px * var(--ui-scale));
         letter-spacing: 0.04em;
         text-align: right;
         white-space: nowrap;
@@ -421,10 +433,10 @@
 
       .now-description {
         max-width: 30ch;
-        margin: 14px 0 0;
+        margin: calc(14px * var(--ui-scale)) 0 0;
         color: #1a1a1a;
         font-family: var(--serif);
-        font-size: 20px;
+        font-size: calc(20px * var(--ui-scale));
         line-height: 1.3;
       }
 
@@ -450,22 +462,22 @@
       }
 
       .recognition-list li {
-        margin-bottom: 8px;
+        margin-bottom: calc(8px * var(--ui-scale));
         color: #606060;
         font-family: var(--mono);
-        font-size: 12.5px;
+        font-size: calc(12.5px * var(--ui-scale));
         font-weight: 400;
         line-height: 1.5;
       }
 
       @media (min-width: 1001px) and (min-height: 660px) {
         .nav {
-          height: 76px;
-          min-height: 76px;
+          height: calc(76px * var(--ui-scale));
+          min-height: calc(76px * var(--ui-scale));
         }
 
         .main {
-          --column-top: clamp(32px, 5vh, 60px);
+          --column-top: clamp(calc(32px * var(--ui-scale)), calc(5vh * var(--ui-scale)), calc(60px * var(--ui-scale)));
         }
       }
 
@@ -483,7 +495,7 @@
 
         .col-left {
           max-width: 720px;
-          padding-bottom: 32px;
+          padding-bottom: calc(32px * var(--ui-scale));
         }
 
         .col-projects,
@@ -523,7 +535,7 @@
 
       @media (max-width: 620px) {
         .nav {
-          padding: 16px 20px;
+          padding: calc(16px * var(--ui-scale)) calc(20px * var(--ui-scale));
         }
 
         .social-list a {
@@ -535,9 +547,9 @@
         .main {
           grid-template-columns: minmax(0, 1fr);
           column-gap: 0;
-          --column-top: 38px;
-          padding-right: 20px;
-          padding-left: 20px;
+          --column-top: calc(38px * var(--ui-scale));
+          padding-right: calc(20px * var(--ui-scale));
+          padding-left: calc(20px * var(--ui-scale));
         }
 
         .col-left,
@@ -613,20 +625,30 @@
       <section class="col-projects" aria-labelledby="work-heading">
         <h2 class="section-label" id="work-heading">WORK</h2>
         <ul class="featured-list">
-            <li class="featured-entry">
-              <div class="featured-heading">
-                <h3 class="featured-title">Sentinel AI</h3>
-                <a class="featured-link" href="https://github.com/anugrahvibi/sentinel-ai" target="_blank" rel="noreferrer">GitHub ↗</a>
-              </div>
-              <p class="featured-description">A black-box framework for finding hidden backdoors in NLP models through behavioral probing and entropy analysis.</p>
-            </li>
-            <li class="featured-entry">
-              <div class="featured-heading">
-                <h3 class="featured-title">Pixel Poison</h3>
-                <a class="featured-link" href="https://github.com/anugrahvibi/adversarial-gradient-visualizer" target="_blank" rel="noreferrer">GitHub ↗</a>
-              </div>
-              <p class="featured-description">A PyTorch case study visualizing FGSM and PGD adversarial attacks against an MNIST classifier.</p>
-            </li>
+          <li class="featured-entry">
+            <div class="featured-heading">
+              <h3 class="featured-title">Sentinel</h3>
+              <a class="featured-link" href="https://github.com/anugrahvibi/PushToProd" target="_blank" rel="noopener noreferrer" aria-label="Sentinel on GitHub">GitHub ↗</a>
+            </div>
+            <p class="featured-description">Finds hidden backdoor triggers in poisoned text classifiers and verifies them against model behavior.</p>
+            <p class="featured-meta"><a href="https://github.com/anugrahvibi/sentinel-ai" target="_blank" rel="noopener noreferrer" aria-label="Earlier version of Sentinel on GitHub">Earlier version with build notes ↗</a></p>
+          </li>
+          <li class="featured-entry">
+            <div class="featured-heading">
+              <h3 class="featured-title">Pixel Poison</h3>
+              <a class="featured-link" href="https://github.com/anugrahvibi/adversarial-gradient-visualizer" target="_blank" rel="noopener noreferrer" aria-label="Pixel Poison on GitHub">GitHub ↗</a>
+            </div>
+            <p class="featured-description">Visualizes FGSM and PGD attacks against a PyTorch CNN trained on MNIST.</p>
+          </li>
+          <li class="featured-entry">
+            <div class="featured-heading">
+              <h3 class="featured-title">Celestin</h3>
+              <a class="featured-link" href="https://github.com/anugrahvibi/Celestin" target="_blank" rel="noopener noreferrer" aria-label="Celestin on GitHub">GitHub ↗</a>
+            </div>
+            <p class="featured-description">A local MCP server that gives AI agents searchable memory across sessions, with project-scoped access.</p>
+            <p class="featured-meta">Team project · in development</p>
+          </li>
+          <!-- ALT featured #3: swap in CascadeNet if Celestin has no security angle
             <li class="featured-entry">
               <div class="featured-heading">
                 <h3 class="featured-title">CascadeNet</h3>
@@ -635,6 +657,7 @@
               <p class="featured-description">Turns flood-risk signals into simultaneous response plans for five stakeholders, from dam authorities to the public.</p>
               <p class="featured-meta">1st Place · Hackathena · 2026 / 2nd Runner-Up · Astrava · 2026</p>
             </li>
+          -->
         </ul>
 
         <section class="archive-section" aria-labelledby="archive-heading">
@@ -642,30 +665,31 @@
           <ul class="archive-list">
             <li class="archive-entry">
               <div class="archive-heading">
-                <span class="archive-name">Kadhali Healthcare</span>
-                <a class="archive-link" href="https://github.com/anugrahvibi/Kadhali-Healthcare" target="_blank" rel="noreferrer">GitHub ↗</a>
+                <span class="archive-name">CascadeNet</span>
+                <a class="archive-link" href="https://github.com/anugrahvibi/CascadeNet" target="_blank" rel="noopener noreferrer" aria-label="CascadeNet on GitHub">GitHub ↗</a>
               </div>
-              <p class="archive-description">A medical PDF analyzer that extracts clinical information and creates patient-friendly summaries and reports.</p>
+              <p class="archive-description">Models flood-hazard cascades across infrastructure and maps risks to department-specific response plans.</p>
+            </li>
+            <li class="archive-entry">
+              <div class="archive-heading">
+                <span class="archive-name">ConclaveAI</span>
+                <a class="archive-link" href="https://github.com/anugrahvibi/conclaveai" target="_blank" rel="noopener noreferrer" aria-label="ConclaveAI on GitHub">GitHub ↗</a>
+              </div>
+              <p class="archive-description">Downscales weather forecasts to village-level conditions and pairs them with geospatial crop advisories.</p>
+            </li>
+            <li class="archive-entry">
+              <div class="archive-heading">
+                <span class="archive-name">Kadhali Healthcare</span>
+                <a class="archive-link" href="https://github.com/anugrahvibi/Kadhali-Healthcare" target="_blank" rel="noopener noreferrer" aria-label="Kadhali Healthcare on GitHub">GitHub ↗</a>
+              </div>
+              <p class="archive-description">Extracts clinical data from PDFs and creates patient summaries and reports.</p>
             </li>
             <li class="archive-entry">
               <div class="archive-heading">
                 <span class="archive-name">Sports Analysis</span>
-                <a class="archive-link" href="https://github.com/anugrahvibi/sports-analysis-project" target="_blank" rel="noreferrer">GitHub ↗</a>
+                <a class="archive-link" href="https://github.com/anugrahvibi/sports-analysis-project" target="_blank" rel="noopener noreferrer" aria-label="Sports Analysis on GitHub">GitHub ↗</a>
               </div>
-              <p class="archive-description">A player-performance analysis project exploring which club might target a player.</p>
-            </li>
-            <li class="archive-entry">
-              <div class="archive-heading">
-                <span class="archive-name">Christovate 2025</span>
-                <a class="archive-link" href="https://github.com/anugrahvibi/christovate25" target="_blank" rel="noreferrer">GitHub ↗</a>
-              </div>
-              <p class="archive-description">Website for Christovate.</p>
-            </li>
-            <li class="archive-entry">
-              <div class="archive-heading">
-                <span class="archive-name">AGRUS</span>
-              </div>
-              <p class="archive-description">An AI agritech concept integrating soil monitoring, plant diagnostics, and verified agricultural knowledge.</p>
+              <p class="archive-description">A local demo for comparing player performance and possible target clubs.</p>
             </li>
           </ul>
         </section>
@@ -677,8 +701,7 @@
             <h2 class="section-label" id="now-heading">NOW</h2>
             <span class="now-updated">UPDATED OCT 2026</span>
           </div>
-          <!-- TODO: replace with my real current focus (1-3 lines) and update the date stamp -->
-          <p class="now-description">Studying how AI models get attacked, and how to secure them.</p>
+          <p class="now-description">Researching backdoors in direct-decision (System 1) models and how to detect them.</p>
         </section>
 
         <section class="right-section" aria-labelledby="experience-heading">
