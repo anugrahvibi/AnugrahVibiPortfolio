@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Anugrah Vibi — AI engineering student and builder focused on safer AI, research, and useful systems."
+    />
+    <meta name="theme-color" content="#e8e8e8" />
+    <title>Anugrah Vibi — AI Engineering &amp; Research</title>
+    <link rel="icon" href="data:," />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;700&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --paper: #eceae4;
+        --ink: #222;
+        --muted: #5d5d5d;
+        --rule: #c8c8c8;
+        --serif: "Instrument Serif", Georgia, serif;
+        --mono: "Space Mono", "Courier New", monospace;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-width: 320px;
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: var(--mono);
+        font-size: 13px;
+        line-height: 1.65;
+      }
+
+      a {
+        color: inherit;
+        text-decoration-color: #8d8d8d;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3px;
+      }
+
+      a:hover {
+        text-decoration-color: currentColor;
+      }
+
+      a:focus-visible {
+        outline: 2px solid var(--ink);
+        outline-offset: 4px;
+      }
+
+      .project-scroll:focus-visible {
+        outline: 1px dashed #858585;
+        outline-offset: 2px;
+      }
+
+      .nav {
+        min-height: 76px;
+        display: flex;
+        align-items: center;
+        padding: 18px clamp(22px, 4vw, 56px);
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .nav-left {
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        white-space: nowrap;
+      }
+
+      .local-times {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        margin-left: auto;
+        color: var(--muted);
+        font-size: 11px;
+        letter-spacing: 0.04em;
+        line-height: 1.35;
+        white-space: nowrap;
+      }
+
+      .time-row {
+        display: grid;
+        grid-template-columns: 3ch 8ch 9ch;
+        column-gap: 0.7em;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .time-value,
+      .time-offset {
+        text-align: right;
+      }
+
+      .main {
+        display: grid;
+        grid-template-columns: minmax(220px, 0.9fr) minmax(360px, 1.35fr) minmax(230px, 0.95fr);
+        gap: clamp(24px, 4vw, 62px);
+        padding: clamp(34px, 5vw, 62px) clamp(22px, 4vw, 56px) 56px;
+      }
+
+      .col-left,
+      .col-right,
+      .col-projects {
+        min-width: 0;
+      }
+
+      .col-left {
+        padding-top: 8px;
+      }
+
+      .name {
+        margin: 0;
+        font-family: "Inter", sans-serif;
+        font-size: clamp(56px, 7vw, 120px);
+        font-style: normal;
+        font-weight: 700;
+        line-height: 0.95;
+        letter-spacing: -0.04em;
+        text-transform: lowercase;
+      }
+
+      .tagline {
+        max-width: 36ch;
+        margin: 24px 0 0;
+        color: #222;
+        font-family: "Inter", sans-serif;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.35;
+      }
+
+      .cv-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 28px;
+        padding: 12px 18px;
+        border: 1px solid #111;
+        border-radius: 0;
+        background: #111;
+        color: #f8f8f6;
+        font-family: var(--mono);
+        font-size: 13px;
+        letter-spacing: 0.02em;
+        line-height: 1.4;
+        text-decoration: none;
+        transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
+      }
+
+      .cv-link:hover,
+      .cv-link:focus-visible {
+        border-color: #111;
+        background: transparent;
+        color: #111;
+      }
+
+      .socials {
+        margin-top: 28px;
+      }
+
+      .section-label {
+        margin: 0 0 17px;
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 400;
+        letter-spacing: 0.16em;
+        line-height: 1.4;
+        text-transform: uppercase;
+      }
+
+      .social-list,
+      .work-list,
+      .experience-list,
+      .recognition-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .social-list li {
+        margin: 0;
+      }
+
+      .social-list a {
+        text-underline-offset: 4px;
+        font-size: 14px;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+
+      .social-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 22px;
+      }
+
+      .social-arrow {
+        margin-left: 4px;
+        font-size: 10px;
+      }
+
+      .column-heading {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .scroll-note {
+        color: var(--muted);
+        font-size: 10px;
+        letter-spacing: 0.08em;
+        white-space: nowrap;
+      }
+
+      .work-list li {
+        position: relative;
+        margin: 0 0 16px;
+        padding-left: 34px;
+        line-height: 1.55;
+      }
+
+      .work-list .num {
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-family: var(--serif);
+        font-size: 15px;
+        font-style: italic;
+      }
+
+      .work-list strong,
+      .project-title {
+        font-weight: 700;
+      }
+
+      .sub-text {
+        margin-top: 5px;
+        color: #383838;
+      }
+
+      .project-scroll {
+        min-width: 0;
+      }
+
+      .divider {
+        margin: 27px 0 24px;
+        border: 0;
+        border-top: 1px solid var(--rule);
+      }
+
+      .projects-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .project {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 6px 16px;
+        padding: 0 0 17px;
+        margin: 0 0 17px;
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .project:last-child {
+        margin-bottom: 0;
+        border-bottom: 0;
+      }
+
+      .project-title {
+        font-size: 13px;
+      }
+
+      .project-description {
+        grid-column: 1 / 2;
+        margin: 0;
+        color: #383838;
+        line-height: 1.6;
+      }
+
+      .project-link {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        align-self: start;
+        font-size: 11px;
+        white-space: nowrap;
+      }
+
+      .experience-list li,
+      .recognition-list li {
+        margin: 0 0 13px;
+        line-height: 1.55;
+      }
+
+      .role-title,
+      .recognition-title {
+        display: block;
+        font-weight: 700;
+      }
+
+      .role-meta,
+      .recognition-meta {
+        display: block;
+        color: var(--muted);
+        font-size: 11px;
+      }
+
+      .right-section + .right-section {
+        margin-top: 31px;
+      }
+
+      @media (min-width: 1001px) and (min-height: 660px) {
+        body {
+          height: 100vh;
+          height: 100dvh;
+          overflow: hidden;
+        }
+
+        .nav {
+          height: 76px;
+          min-height: 76px;
+        }
+
+        .main {
+          height: calc(100vh - 76px);
+          height: calc(100dvh - 76px);
+          overflow: hidden;
+          padding-top: clamp(32px, 5vh, 60px);
+          padding-bottom: 34px;
+        }
+
+        .col-projects {
+          min-height: 0;
+          overflow-x: hidden;
+          overflow-y: auto;
+          overscroll-behavior-y: contain;
+          scrollbar-color: #a5a5a5 transparent;
+          scrollbar-width: thin;
+          padding: 0 13px 18px 0;
+        }
+
+        .col-projects::-webkit-scrollbar {
+          width: 5px;
+        }
+
+        .col-projects::-webkit-scrollbar-thumb {
+          background: #a5a5a5;
+          border-radius: 10px;
+        }
+
+        .col-projects::-webkit-scrollbar-track {
+          background: transparent;
+        }
+      }
+
+      @media (max-width: 1000px), (max-height: 659px) {
+        .main {
+          grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+          overflow: visible;
+        }
+
+        .scroll-note {
+          display: none;
+        }
+
+        .col-left,
+        .col-projects {
+          grid-column: 1 / -1;
+        }
+
+        .col-left {
+          max-width: 720px;
+        }
+      }
+
+      @media (max-width: 639px) {
+        .time-row--me {
+          display: none;
+        }
+      }
+
+      @media (max-width: 620px) {
+        .nav {
+          padding: 16px 20px;
+        }
+
+        .social-list a,
+        .project-link {
+          display: inline-flex;
+          min-height: 44px;
+          align-items: center;
+        }
+
+        .main {
+          grid-template-columns: minmax(0, 1fr);
+          gap: 42px;
+          padding: 38px 20px 56px;
+        }
+
+        .col-left,
+        .col-projects {
+          grid-column: 1;
+        }
+
+        .socials {
+          margin-top: 28px;
+        }
+
+        .col-right {
+          display: grid;
+          grid-template-columns: 1fr;
+        }
+
+        .project {
+          grid-template-columns: minmax(0, 1fr);
+          gap: 4px;
+        }
+
+        .project-description,
+        .project-link {
+          grid-column: 1;
+          grid-row: auto;
+        }
+
+        .project-link {
+          margin-top: 3px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="nav">
+      <span class="nav-left">AV</span>
+      <div class="local-times" role="group" aria-label="Local times">
+        <div class="time-row time-row--me">
+          <span>ME</span>
+          <span class="time-value" data-time="me" aria-hidden="true">--:--:--</span>
+          <span class="time-offset" data-offset="me">GMT+--:--</span>
+        </div>
+        <div class="time-row time-row--you">
+          <span>YOU</span>
+          <span class="time-value" data-time="you" aria-hidden="true">--:--:--</span>
+          <span class="time-offset" data-offset="you">GMT±X</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="col-left" aria-labelledby="name">
+        <h1 class="name" id="name">Anugrah Vibi</h1>
+        <p class="tagline">
+          An AI engineering student &amp; builder from Kerala, India — studying Computer Science at Christ College of Engineering (2025–2029). Making AI safer &amp; turning complex ideas into useful systems.
+        </p>
+
+        <a class="cv-link" href="./assets/Anugrah_Vibi_CV.pdf" download="Anugrah_Vibi_CV.pdf">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <path d="M8 1.5v8" />
+            <path d="m4.75 6.75 3.25 3.25 3.25-3.25" />
+            <path d="M2.5 11.5v2h11v-2" />
+          </svg>
+          <span>Download CV</span>
+        </a>
+
+        <nav class="socials" aria-label="Find me online">
+          <ul class="social-list">
+            <li><a href="https://github.com/anugrahvibi" target="_blank" rel="noreferrer">GitHub<span class="social-arrow" aria-hidden="true">↗</span></a></li>
+            <li><a href="https://www.linkedin.com/in/anugrahvibi/" target="_blank" rel="noreferrer">LinkedIn<span class="social-arrow" aria-hidden="true">↗</span></a></li>
+            <li><a href="https://x.com/anugrahvibi" target="_blank" rel="noreferrer">X<span class="social-arrow" aria-hidden="true">↗</span></a></li>
+          </ul>
+        </nav>
+      </section>
+
+      <section class="col-projects project-scroll" tabindex="0" aria-label="Selected work and projects">
+        <div class="column-heading">
+          <h2 class="section-label">Selected work</h2>
+          <span class="scroll-note" aria-hidden="true">SCROLL ↓</span>
+        </div>
+        <ol class="work-list">
+          <li>
+            <span class="num" aria-hidden="true">I.</span>
+            <strong>Sentinel AI</strong> — A black-box framework for finding hidden backdoors in NLP models through behavioral probing and entropy analysis.
+          </li>
+          <li>
+            <span class="num" aria-hidden="true">II.</span>
+            <strong>CascadeNet</strong> — A disaster coordination platform; 1st at Hackathena 2026 and 2nd Runner-Up at Astrava 2026.
+          </li>
+          <li>
+            <span class="num" aria-hidden="true">III.</span>
+            <strong>AGRUS</strong> — An AI agritech concept integrating soil monitoring, plant diagnostics, and verified agricultural knowledge; 1st Place at EVOLVE 2.0.
+          </li>
+        </ol>
+
+        <hr class="divider" />
+
+        <h2 class="section-label">Projects</h2>
+        <ul class="projects-list">
+          <li class="project">
+            <span class="project-title">Sentinel AI</span>
+            <p class="project-description">Detects unknown backdoor triggers through controlled input perturbations and entropy analysis. Tested on a poisoned DistilBERT model.</p>
+            <a class="project-link" href="https://github.com/anugrahvibi/sentinel-ai" target="_blank" rel="noreferrer">GitHub ↗</a>
+          </li>
+          <li class="project">
+            <span class="project-title">CascadeNet</span>
+            <p class="project-description">Turns flood-risk signals into simultaneous response plans for five stakeholders, from dam authorities to the public.</p>
+            <a class="project-link" href="https://github.com/anugrahvibi/CascadeNet" target="_blank" rel="noreferrer">GitHub ↗</a>
+          </li>
+          <li class="project">
+            <span class="project-title">Kadhali Healthcare</span>
+            <p class="project-description">A medical PDF analyzer that extracts clinical information and creates patient-friendly summaries and reports.</p>
+            <a class="project-link" href="https://github.com/anugrahvibi/Kadhali-Healthcare" target="_blank" rel="noreferrer">GitHub ↗</a>
+          </li>
+          <li class="project">
+            <span class="project-title">Pixel Poison</span>
+            <p class="project-description">A PyTorch case study visualizing FGSM and PGD adversarial attacks against an MNIST classifier.</p>
+            <a class="project-link" href="https://github.com/anugrahvibi/adversarial-gradient-visualizer" target="_blank" rel="noreferrer">GitHub ↗</a>
+          </li>
+          <li class="project">
+            <span class="project-title">Sports Analysis</span>
+            <p class="project-description">A player-performance analysis project exploring which club might target a player.</p>
+            <a class="project-link" href="https://github.com/anugrahvibi/sports-analysis-project" target="_blank" rel="noreferrer">GitHub ↗</a>
+          </li>
+          <li class="project">
+            <span class="project-title">Christovate 2025</span>
+            <p class="project-description">Website for Christovate.</p>
+            <a class="project-link" href="https://github.com/anugrahvibi/christovate25" target="_blank" rel="noreferrer">GitHub ↗</a>
+          </li>
+        </ul>
+      </section>
+
+      <aside class="col-right" aria-label="Experience and recognition">
+        <section class="right-section" aria-labelledby="experience-heading">
+          <h2 class="section-label" id="experience-heading">Experience</h2>
+          <ul class="experience-list">
+            <li>
+              <span class="role-title">Co-Chief Publicity Officer</span>
+              <span class="role-meta">IEDC · Christ College of Engineering · Jun 2026</span>
+            </li>
+            <li>
+              <span class="role-title">Co-Chief Operations Officer</span>
+              <span class="role-meta">MuLearn CCE · Jun 2026</span>
+            </li>
+            <li>
+              <span class="role-title">District Cluster Volunteer · Health</span>
+              <span class="role-meta">IEDC · Feb 2026</span>
+            </li>
+            <li>
+              <span class="role-title">Technical Team Volunteer</span>
+              <span class="role-meta">IEDC Techletics · Feb 2026</span>
+            </li>
+          </ul>
+        </section>
+
+        <section class="right-section" aria-labelledby="recognition-heading">
+          <h2 class="section-label" id="recognition-heading">Recognitions</h2>
+          <ul class="recognition-list">
+            <li><span class="recognition-title">1st Place · Hackathena</span><span class="recognition-meta">National Hackathon · 2026</span></li>
+            <li><span class="recognition-title">2nd Runner-Up · Astrava</span><span class="recognition-meta">National Hackathon · 2026</span></li>
+            <li><span class="recognition-title">2nd Place · BeachHack H4C</span><span class="recognition-meta">Feb 2026</span></li>
+            <li><span class="recognition-title">1st Place · EVOLVE 2.0</span><span class="recognition-meta">AGRUS · Oct 2025</span></li>
+            <li><span class="recognition-title">1st Place · Webathon</span><span class="recognition-meta">Oct 2025</span></li>
+            <li><span class="recognition-title">2nd Prize · Hacknova</span><span class="recognition-meta">Kadhali Healthcare · Sep 2025</span></li>
+          </ul>
+        </section>
+      </aside>
+    </main>
+    <script>
+      function mountLocalTimes() {
+        const localTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        const timeZones = {
+          me: "Asia/Kolkata",
+          you: localTimeZone,
+        };
+        const timeFormatters = Object.fromEntries(
+          Object.entries(timeZones).map(([key, timeZone]) => [
+            key,
+            new Intl.DateTimeFormat("en-GB", {
+              timeZone,
+              hour: "2-digit",
+              minute: "2-digit",
+              second: "2-digit",
+              hourCycle: "h23",
+            }),
+          ]),
+        );
+        const offsetFormatters = Object.fromEntries(
+          Object.entries(timeZones).map(([key, timeZone]) => [
+            key,
+            new Intl.DateTimeFormat("en", {
+              timeZone,
+              timeZoneName: "shortOffset",
+            }),
+          ]),
+        );
+
+        function updateTimes() {
+          const now = new Date();
+
+          for (const key of Object.keys(timeZones)) {
+            const time = document.querySelector(`[data-time="${key}"]`);
+            const offset = document.querySelector(`[data-offset="${key}"]`);
+            const zoneName = offsetFormatters[key]
+              .formatToParts(now)
+              .find((part) => part.type === "timeZoneName").value;
+
+            time.textContent = timeFormatters[key].format(now);
+            offset.textContent = zoneName;
+          }
+        }
+
+        updateTimes();
+        const intervalId = window.setInterval(updateTimes, 1000);
+        return () => window.clearInterval(intervalId);
+      }
+
+      const unmountLocalTimes = mountLocalTimes();
+      window.addEventListener("pagehide", unmountLocalTimes, { once: true });
+    </script>
+  </body>
+</html>

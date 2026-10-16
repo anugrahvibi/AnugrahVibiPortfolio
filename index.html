@@ -23,6 +23,8 @@
         --ink: #1a1a1a;
         --muted: #5d5d5d;
         --rule: #c8c8c8;
+        --rule-major: 1px solid var(--rule);
+        --column-divider: var(--rule-major);
         --serif: "Instrument Serif", Georgia, serif;
         --mono: "Space Mono", "Courier New", monospace;
       }
@@ -35,6 +37,11 @@
 
       html {
         scroll-behavior: smooth;
+        scrollbar-width: none;
+      }
+
+      html::-webkit-scrollbar {
+        display: none;
       }
 
       body {
@@ -68,7 +75,7 @@
         display: flex;
         align-items: center;
         padding: 18px clamp(22px, 4vw, 56px);
-        border-bottom: 1px solid var(--rule);
+        border-bottom: var(--rule-major);
       }
 
       .nav-left {
@@ -103,20 +110,34 @@
       }
 
       .main {
+        --column-gap: clamp(24px, 4vw, 62px);
+        --column-top: clamp(34px, 5vw, 62px);
+        --column-bottom: 64px;
         display: grid;
         grid-template-columns: minmax(220px, 0.9fr) minmax(360px, 1.35fr) minmax(230px, 0.95fr);
-        gap: clamp(24px, 4vw, 62px);
-        padding: clamp(34px, 5vw, 62px) clamp(22px, 4vw, 56px) 64px;
+        column-gap: var(--column-gap);
+        row-gap: var(--column-gap);
+        align-items: stretch;
+        padding: 0 clamp(22px, 4vw, 56px);
       }
 
       .col-left,
       .col-right,
       .col-projects {
         min-width: 0;
+        padding-top: var(--column-top);
+        padding-bottom: var(--column-bottom);
       }
 
       .col-left {
-        padding-top: 8px;
+        padding-top: calc(var(--column-top) + 8px);
+      }
+
+      .col-projects,
+      .col-right {
+        margin-left: calc(var(--column-gap) / -2);
+        padding-left: calc(var(--column-gap) / 2 - 1px);
+        border-left: var(--column-divider);
       }
 
       .name {
@@ -402,13 +423,14 @@
         }
 
         .main {
-          padding-top: clamp(32px, 5vh, 60px);
+          --column-top: clamp(32px, 5vh, 60px);
         }
       }
 
       @media (max-width: 1000px), (max-height: 659px) {
         .main {
           grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+          row-gap: 0;
           overflow: visible;
         }
 
@@ -419,6 +441,21 @@
 
         .col-left {
           max-width: 720px;
+          padding-bottom: 32px;
+        }
+
+        .col-projects,
+        .col-right {
+          margin-left: 0;
+          padding-top: 32px;
+          padding-bottom: 32px;
+          padding-left: 0;
+          border-top: var(--column-divider);
+          border-left: 0;
+        }
+
+        .col-right {
+          padding-bottom: var(--column-bottom);
         }
       }
 
@@ -441,8 +478,10 @@
 
         .main {
           grid-template-columns: minmax(0, 1fr);
-          gap: 42px;
-          padding: 38px 20px 64px;
+          column-gap: 0;
+          --column-top: 38px;
+          padding-right: 20px;
+          padding-left: 20px;
         }
 
         .col-left,
