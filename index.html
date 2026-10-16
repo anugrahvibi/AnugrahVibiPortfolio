@@ -89,25 +89,11 @@
       }
 
       .nav-left {
-        display: inline-flex;
-        align-items: center;
-        gap: calc(10px * var(--ui-scale));
         font-size: calc(14px * var(--ui-scale));
         font-weight: 600;
         letter-spacing: 0.08em;
         text-decoration: none;
         white-space: nowrap;
-      }
-
-      .nav-avatar {
-        display: grid;
-        width: calc(32px * var(--ui-scale));
-        aspect-ratio: 1;
-        place-items: center;
-        border: 1px solid var(--ink);
-        border-radius: 50%;
-        font-size: calc(10px * var(--ui-scale));
-        line-height: 1;
       }
 
       .local-times {
@@ -620,10 +606,7 @@
   </head>
   <body>
     <header class="nav">
-      <a class="nav-left" href="./" aria-label="Anugrah Vibi home">
-        <span class="nav-avatar" aria-hidden="true">AV</span>
-        <span>Anugrah Vibi</span>
-      </a>
+      <a class="nav-left" href="./" aria-label="Anugrah Vibi home">AV</a>
       <div class="local-times" role="group" aria-label="Local times">
         <div class="time-row time-row--me">
           <span>ME</span>
