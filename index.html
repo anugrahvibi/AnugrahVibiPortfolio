@@ -46,6 +46,14 @@
         display: none;
       }
 
+      .col-projects {
+        scrollbar-width: none;
+      }
+
+      .col-projects::-webkit-scrollbar {
+        display: none;
+      }
+
       body {
         min-width: 320px;
         margin: 0;
@@ -471,6 +479,12 @@
       }
 
       @media (min-width: 1001px) and (min-height: 660px) {
+        body {
+          height: 100vh;
+          height: 100dvh;
+          overflow: hidden;
+        }
+
         .nav {
           height: calc(76px * var(--ui-scale));
           min-height: calc(76px * var(--ui-scale));
@@ -478,6 +492,16 @@
 
         .main {
           --column-top: clamp(calc(32px * var(--ui-scale)), calc(5vh * var(--ui-scale)), calc(60px * var(--ui-scale)));
+          height: calc(100vh - calc(76px * var(--ui-scale)));
+          height: calc(100dvh - calc(76px * var(--ui-scale)));
+          grid-template-rows: minmax(0, 1fr);
+          overflow: hidden;
+        }
+
+        .col-projects {
+          min-height: 0;
+          overflow-y: auto;
+          overscroll-behavior-y: contain;
         }
       }
 
@@ -622,7 +646,7 @@
         </div>
       </section>
 
-      <section class="col-projects" aria-labelledby="work-heading">
+      <section class="col-projects" aria-labelledby="work-heading" tabindex="0">
         <h2 class="section-label" id="work-heading">WORK</h2>
         <ul class="featured-list">
           <li class="featured-entry">
@@ -635,10 +659,11 @@
           </li>
           <li class="featured-entry">
             <div class="featured-heading">
-              <h3 class="featured-title">Pixel Poison</h3>
-              <a class="featured-link" href="https://github.com/anugrahvibi/adversarial-gradient-visualizer" target="_blank" rel="noopener noreferrer" aria-label="Pixel Poison on GitHub">GitHub ↗</a>
+              <h3 class="featured-title">Laya-Offscript</h3>
+              <a class="featured-link" href="https://github.com/anugrahvibi/Laya-Offscript" target="_blank" rel="noopener noreferrer" aria-label="Laya-Offscript on GitHub">GitHub ↗</a>
             </div>
-            <p class="featured-description">Visualizes FGSM and PGD attacks against a PyTorch CNN trained on MNIST.</p>
+            <p class="featured-description">Studies how backdoors can be introduced into direct-decision (System 1) models and develops safeguards to prevent them.</p>
+            <p class="featured-meta">In development</p>
           </li>
           <li class="featured-entry">
             <div class="featured-heading">
@@ -663,6 +688,13 @@
         <section class="archive-section" aria-labelledby="archive-heading">
           <h2 class="section-label" id="archive-heading">ALSO BUILT</h2>
           <ul class="archive-list">
+            <li class="archive-entry">
+              <div class="archive-heading">
+                <span class="archive-name">Pixel Poison</span>
+                <a class="archive-link" href="https://github.com/anugrahvibi/adversarial-gradient-visualizer" target="_blank" rel="noopener noreferrer" aria-label="Pixel Poison on GitHub">GitHub ↗</a>
+              </div>
+              <p class="archive-description">Visualizes FGSM and PGD attacks against a PyTorch CNN trained on MNIST.</p>
+            </li>
             <li class="archive-entry">
               <div class="archive-heading">
                 <span class="archive-name">CascadeNet</span>
@@ -740,6 +772,28 @@
       </aside>
     </main>
     <script>
+      function mountWorkScrollRelay() {
+        const workScroller = document.querySelector(".col-projects");
+        const desktopLayout = window.matchMedia("(min-width: 1001px) and (min-height: 660px)");
+
+        function relayWheel(event) {
+          if (!desktopLayout.matches || workScroller.contains(event.target) || event.deltaY === 0) {
+            return;
+          }
+
+          event.preventDefault();
+          const multiplier = event.deltaMode === 1
+            ? 16
+            : event.deltaMode === 2
+              ? workScroller.clientHeight
+              : 1;
+          workScroller.scrollTop += event.deltaY * multiplier;
+        }
+
+        document.addEventListener("wheel", relayWheel, { passive: false });
+        return () => document.removeEventListener("wheel", relayWheel);
+      }
+
       function mountLocalTimes() {
         const localTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
         const timeZones = {
@@ -790,6 +844,8 @@
 
       const unmountLocalTimes = mountLocalTimes();
       window.addEventListener("pagehide", unmountLocalTimes, { once: true });
+      const unmountWorkScrollRelay = mountWorkScrollRelay();
+      window.addEventListener("pagehide", unmountWorkScrollRelay, { once: true });
     </script>
   </body>
 </html>
