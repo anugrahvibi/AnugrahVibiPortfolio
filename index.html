@@ -315,6 +315,25 @@
         color: #aaa;
       }
 
+      .email-contact {
+        margin: calc(8px * var(--ui-scale)) 0 0;
+      }
+
+      .email-contact a {
+        color: #606060;
+        font-family: var(--mono);
+        font-size: calc(13px * var(--ui-scale));
+        font-weight: 400;
+        text-decoration: none;
+      }
+
+      .email-contact a:hover,
+      .email-contact a:focus-visible {
+        color: #111;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+      }
+
       .featured-list,
       .archive-list {
         margin: 0;
@@ -624,6 +643,12 @@
           align-items: center;
         }
 
+        .email-contact a {
+          display: inline-flex;
+          min-height: 44px;
+          align-items: center;
+        }
+
         .main {
           grid-template-columns: minmax(0, 1fr);
           column-gap: 0;
@@ -701,6 +726,8 @@
               <li><a href="https://x.com/anugrah_vibi" target="_blank" rel="noreferrer">X</a></li>
             </ul>
           </nav>
+
+          <p class="email-contact"><a href="mailto:anugrahvibi07@gmail.com">Email ↗</a></p>
 
           <figure class="portrait-preview">
             <img src="./assets/portrait-original-bw.jpg" alt="Black-and-white portrait of Anugrah Vibi against a textured wall" />
