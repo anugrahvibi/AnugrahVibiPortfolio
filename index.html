@@ -442,17 +442,15 @@
         font-weight: 700;
       }
 
-      .experience-heading {
-        display: flex;
-        align-items: baseline;
-        justify-content: space-between;
-        gap: calc(16px * var(--ui-scale));
-      }
-
       .role-meta {
         display: block;
         color: var(--muted);
         font-size: calc(11px * var(--ui-scale));
+      }
+
+      .role-meta a {
+        margin-left: calc(8px * var(--ui-scale));
+        white-space: nowrap;
       }
 
       .now-heading {
@@ -811,11 +809,8 @@
           <h2 class="section-label" id="experience-heading">Experience</h2>
           <ul class="experience-list">
             <li>
-              <div class="experience-heading">
-                <span class="role-title">Co-Chief Publicity Officer</span>
-                <a class="archive-link" href="https://iedc.cce.edu.in/execom/cpo/co-lead" target="_blank" rel="noopener noreferrer" aria-label="Co-Chief Publicity Officer profile on IEDC">IEDC profile ↗</a>
-              </div>
-              <span class="role-meta">IEDC · CCE · Jun 2026</span>
+              <span class="role-title">Co-Chief Publicity Officer</span>
+              <span class="role-meta">IEDC · CCE · Jun 2026 <a href="https://iedc.cce.edu.in/execom/cpo/co-lead" target="_blank" rel="noopener noreferrer" aria-label="Co-Chief Publicity Officer profile on IEDC">IEDC profile ↗</a></span>
             </li>
             <li>
               <span class="role-title">Co-Chief Operations Officer</span>
